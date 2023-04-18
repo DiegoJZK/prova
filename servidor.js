@@ -7,6 +7,6 @@ server .use(express.json())
 server .use(express.urlencoded({extended:true}))
 
 server.listen(3000,()=>{
-    console.log("servidor em executando")
+    console.log("servidor em execução")
 })
 

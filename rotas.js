@@ -37,8 +37,24 @@ routes.get("/:id",(req,res)=>{
 })
 
 routes.delete("/:id",(req,res)=>{
-    lista.splice(req.params.id-1,1)
-    res.status(200).redirect("/") 
+    const Indice = lista.findIndex(p => p.id == req.params.id);
+    if (Indice >= 0) {
+      lista.splice(Indice, 1);
+      res.status(200).redirect("/")
+    }
+})
+
+
+
+routes.put("/:id",(req,res)=>{
+    console.log(req.body)
+    lista[req.params.id-1] = req.body
+    res.status(200).send("OK")
+})
+
+routes.post("/",(req,res)=>{
+    lista.push(req.body)
+    res.status(200).json(lista)
 })
 
 module.exports = routes
