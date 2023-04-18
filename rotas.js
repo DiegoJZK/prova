@@ -28,6 +28,7 @@ let lista = [
     "cores": ["preto", "marrom"]
     }
 ]
+
 routes.get("/",(req,res)=>{
     res.status(200).json(lista)
 })
@@ -43,8 +44,6 @@ routes.delete("/:id",(req,res)=>{
       res.status(200).redirect("/")
     }
 })
-
-
 
 routes.put("/:id",(req,res)=>{
     console.log(req.body)
